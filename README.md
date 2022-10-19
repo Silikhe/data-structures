@@ -1,2 +1,2 @@
 # data-structures
-Intro javascript
+Daily Problem solving questions and solution
