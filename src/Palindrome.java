@@ -30,7 +30,12 @@ public class Palindrome {
 //
 //    Follow up: Could you solve it without converting the integer to a string?
 
-    public boolean isPalindrome(int num){
+     public static void main(String[] args) {
+         int test = 121;
+         System.out.println(isPalindrome(test));
+    }
+
+    public static boolean isPalindrome(int num){
         if(num < 0) return  false;
         int reversed = 0, remainder, original = num;
         while(num != 0) {
