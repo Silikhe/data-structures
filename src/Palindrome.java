@@ -33,6 +33,9 @@ public class Palindrome {
      public static void main(String[] args) {
          int test = 121;
          System.out.println(isPalindrome(test));
+//         int a = 2147483647;
+//         a = a + 1;
+//         System.out.println(a);
     }
 
     public static boolean isPalindrome(int num){
