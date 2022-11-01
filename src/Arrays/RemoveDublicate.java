@@ -47,20 +47,28 @@ package Arrays;
 public class RemoveDublicate {
 
     public static void main(String[] args) {
+        int [] array = {1, 3, 4, 2, 7};
+        for (int i = 1; i < array.length; i++){
+//            if (array[i + 1] > array[i]){
+//                array[i+1] = array[i];
+//                System.out.println(array);
+//            }
+            System.out.println(array[i]);
+        }
 //        System.out.println(removeDuplicates([1,1]));
     }
 
     public int removeDuplicates(int[] nums) {
-        int insertIndex = 1;
+        int insert = 1;
         for(int i = 1; i < nums.length; i++){
             // We skip to next index if we see a duplicate element
             if(nums[i - 1] != nums[i]) {
                 /* Storing the unique element at insertIndex index and incrementing
                    the insertIndex by 1 */
-                nums[insertIndex] = nums[i];
-                insertIndex++;
+                nums[insert] = nums[i];
+                insert++;
             }
         }
-        return insertIndex;
+        return insert;
     }
 }
