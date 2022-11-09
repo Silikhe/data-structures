@@ -42,10 +42,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class StackUsingQueues {
+    private Queue<Integer> q1 = new LinkedList<>();
+    private Queue<Integer> q2 = new LinkedList<>();
+    private int top;
+
     public MyStack() {
-        private Queue<Integer> q1 = new LinkedList<>();
-        private Queue<Integer> q2 = new LinkedList<>();
-        private int top;
+
     }
 
     // Push element x onto stack.
