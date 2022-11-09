@@ -38,13 +38,20 @@ package LinkedLists;
 //        At most 100 calls will be made to push, pop, top, and empty.
 //        All the calls to pop and top are valid.
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class StackUsingQueues {
     public MyStack() {
-
+        private Queue<Integer> q1 = new LinkedList<>();
+        private Queue<Integer> q2 = new LinkedList<>();
+        private int top;
     }
 
+    // Push element x onto stack.
     public void push(int x) {
-
+        q1.add(x);
+        top = x;
     }
 
     // Removes the element on top of the stack.
