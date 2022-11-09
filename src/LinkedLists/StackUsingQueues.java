@@ -77,6 +77,13 @@ public class StackUsingQueues {
         q2 = temp;
     }
 
+    public void pop2() {
+        q1.remove();
+        if (!q1.isEmpty()) {
+            top = q1.peek();
+        }
+    }
+
     public int top() {
 
     }
