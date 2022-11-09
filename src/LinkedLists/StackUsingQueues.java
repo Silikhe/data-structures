@@ -84,8 +84,9 @@ public class StackUsingQueues {
         }
     }
 
+    // Get the top element.
     public int top() {
-
+        return top;
     }
 
     // Return whether the stack is empty.
