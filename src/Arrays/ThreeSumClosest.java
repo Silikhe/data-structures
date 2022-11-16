@@ -26,13 +26,15 @@ package Arrays;
 //        -1000 <= nums[i] <= 1000
 //        -104 <= target <= 104
 
+import java.lang.reflect.Array;
+
 public class ThreeSumClosest {
 
     public int threeSumClosest(int[] nums, int target) {
         int result = Integer.MAX_VALUE;
         int diff = Integer.MAX_VALUE;
 
-        Arrays.sort(nums);
+        Array.sort(nums);
 
         int start = 0;
         int end = nums.length - 1;
