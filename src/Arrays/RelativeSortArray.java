@@ -95,14 +95,40 @@ public class RelativeSortArray {
 //            return c;
 //        }
 
+//    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+//        return Arrays.stream(arr1)
+//                .boxed()
+//                .collect(Collectors.toMap(i -> i, i -> 1, Integer::sum))
+//                .entrySet()
+//                .stream()
+//                .sorted(Comparator.comparing((first) -> IntStream.range(0, arr2.length).filter(i -> first.getKey() == arr2[i]).findFirst().orElse(first.getKey() + 1000)))
+//                .flatMapToInt(item -> Stream.iterate(item.getKey(), i -> i).limit(item.getValue()).mapToInt(i -> i))
+//                .toArray();
+//    }
+
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
-        return Arrays.stream(arr1)
-                .boxed()
-                .collect(Collectors.toMap(i -> i, i -> 1, Integer::sum))
-                .entrySet()
-                .stream()
-                .sorted(Comparator.comparing((first) -> IntStream.range(0, arr2.length).filter(i -> first.getKey() == arr2[i]).findFirst().orElse(first.getKey() + 1000)))
-                .flatMapToInt(item -> Stream.iterate(item.getKey(), i -> i).limit(item.getValue()).mapToInt(i -> i))
-                .toArray();
+        int largest = 0;
+        // get the largest element from arr1
+        for(int i=0; i<arr1.length; i++)
+            largest = Math.max(arr1[i], largest);
+
+        // create an array of size (largest+1) to store frequencies of elements in arr1
+        int[] frequencies = new int[largest+1];
+        for(int i=0; i<arr1.length; i++)
+            frequencies[arr1[i]]++;
+
+        int index = 0;
+        for(int i=0;  i<arr2.length;  i++){
+            // insert the current element of arr2 till freqeuncy of this element in arr1 becomes 0
+            while((frequencies[arr2[i]]--) > 0)
+                arr1[index++] = arr2[i];
+        }
+
+        // insert the remaining elements of arr1 as per their frequencies  which were not present in arr2
+        for(int i=1;  i<frequencies.length;  i++){
+            while((frequencies[i]--) > 0)
+                arr1[index++] = i;
+        }
+        return arr1;
     }
 }
