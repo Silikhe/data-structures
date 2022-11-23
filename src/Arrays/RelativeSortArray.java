@@ -23,4 +23,70 @@ public class RelativeSortArray {
 //            0 <= arr1[i], arr2[i] <= 1000
 //    All the elements of arr2 are distinct.
 //    Each arr2[i] is in arr1.
+
+        public int[] relativeSortArray(int[] a, int[] b) {
+            int n=a.length;
+            int k=b.length;
+            int x=0,l=0,sum=0,w=0;
+            int count=0;
+            int c[]=new int[n];
+            for(int i=0;i<k;i++)
+            {
+                x=0;
+                for(int j=0;j<n;j++)
+                {
+                    if(b[i]==a[j])
+                    {
+                        x++;
+                    }
+                }
+                l=sum;
+                sum+=x;
+                for(int p=l;p<sum;p++)
+                {
+                    c[p]=b[i];
+                }
+            }
+            for(int i=0;i<n;i++)
+            {
+                count=0;
+                for(int j=0;j<k;j++)
+                {
+                    if(a[i]==b[j])
+                    {
+                        count++;
+                    }
+                }
+                if(count==0)
+                {
+                    w++;
+                }
+            }
+            int q[]=new int[w];
+            int y=0;
+            for(int i=0;i<n;i++)
+            {
+                count=0;
+                for(int j=0;j<k;j++)
+                {
+                    if(a[i]==b[j])
+                    {
+                        count++;
+                    }
+                }
+                if(count==0)
+                {
+                    q[y]=a[i];
+                    y++;
+                }
+            }
+            int r=0;
+            Arrays.sort(q);
+            for(int i=sum;i<n;i++)
+            {
+                c[i]=q[i-sum];
+                r++;
+            }
+            return c;
+        }
 }
